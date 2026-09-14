@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bashio
+set -euo pipefail
+
+exec python3 /usr/bin/bkho_remote_agent.py

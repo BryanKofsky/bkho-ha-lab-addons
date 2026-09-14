@@ -1,7 +1,7 @@
-name: BKHO Bootstrap Agent Remote Repo Lab Proof
-version: 0.1.0-remote-repo-lab
+name: BKHO Bootstrap Agent Remote Control Lab Proof
+version: 0.1.18-remote-control-lab
 slug: bkho_bootstrap_agent
-description: Lab-only remote repository distribution proof for BKHO V-001. Not for production bootstrap.
+description: Lab-only V-001 outbound control proof for BKHO. Not for production bootstrap.
 url: https://github.com/BryanKofsky/bkho-ha-lab-addons
 arch:
   - aarch64
@@ -15,5 +15,11 @@ docker_api: false
 hassio_api: false
 homeassistant_api: false
 apparmor: true
-options: {}
-schema: {}
+options:
+  control_mode: "outbound_https_poll"
+  control_endpoint_url: ""
+  claim_poll_seconds: 10
+schema:
+  control_mode: "list(outbound_https_poll)"
+  control_endpoint_url: url?
+  claim_poll_seconds: "int(5,60)"

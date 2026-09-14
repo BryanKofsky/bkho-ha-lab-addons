@@ -1,8 +1,0 @@
-#!/usr/bin/with-contenv bashio
-set -euo pipefail
-
-echo "BKHO V-001 remote repository lab proof started."
-
-while true; do
-  sleep 3600
-done

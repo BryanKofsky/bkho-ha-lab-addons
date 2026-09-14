@@ -10,4 +10,4 @@ LABEL \
   io.hass.arch="${BUILD_ARCH}"
 
 COPY rootfs /
-RUN chmod a+x /etc/services.d/bkho-remote-proof/run
+RUN chmod a+x /etc/services.d/bkho-remote-agent/run /usr/bin/bkho_remote_agent.py
