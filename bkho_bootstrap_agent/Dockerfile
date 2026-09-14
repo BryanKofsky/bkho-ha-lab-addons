@@ -10,4 +10,5 @@ LABEL \
   io.hass.arch="${BUILD_ARCH}"
 
 COPY rootfs /
-RUN chmod a+x /etc/services.d/bkho-remote-agent/run /usr/bin/bkho_remote_agent.py
+RUN apk add --no-cache python3 \
+  && chmod a+x /etc/services.d/bkho-remote-agent/run /usr/bin/bkho_remote_agent.py

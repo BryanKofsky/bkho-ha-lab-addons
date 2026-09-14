@@ -17,9 +17,9 @@ import urllib.request
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-PACKAGE_VERSION = "0.1.18-remote-control-lab"
+PACKAGE_VERSION = "0.1.19-remote-control-lab"
 PROTOCOL_AGENT_VERSION = "0.1.17-lab"
-SOURCE_REVISION = "bkho_remote_agent:0.1.18-remote-control-lab:v001-thin-public"
+SOURCE_REVISION = "bkho_remote_agent:0.1.19-remote-control-lab:v001-thin-public-python3"
 PROTOCOL_SCHEMA_VERSION = "claim-poll-v11-v007-websocket-config-proof"
 CONTROL_MODE = "outbound_https_poll"
 CLAIM_TTL_SECONDS = 15 * 60
