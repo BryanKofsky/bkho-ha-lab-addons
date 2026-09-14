@@ -1,5 +1,5 @@
 name: BKHO Bootstrap Agent Remote Control Lab Proof
-version: 0.1.20-remote-control-lab
+version: 0.1.21-remote-control-lab
 slug: bkho_bootstrap_agent
 description: Lab-only V-001 outbound control proof for BKHO. Not for production bootstrap.
 url: https://github.com/BryanKofsky/bkho-ha-lab-addons
@@ -9,7 +9,7 @@ arch:
 startup: services
 boot: manual
 init: false
-host_network: false
+host_network: true
 full_access: false
 docker_api: false
 hassio_api: false
