@@ -17,9 +17,9 @@ import urllib.request
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-PACKAGE_VERSION = "0.1.19-remote-control-lab"
+PACKAGE_VERSION = "0.1.20-remote-control-lab"
 PROTOCOL_AGENT_VERSION = "0.1.17-lab"
-SOURCE_REVISION = "bkho_remote_agent:0.1.19-remote-control-lab:v001-thin-public-python3"
+SOURCE_REVISION = "bkho_remote_agent:0.1.20-remote-control-lab:v001-thin-public-tls-preflight-nonfatal"
 PROTOCOL_SCHEMA_VERSION = "claim-poll-v11-v007-websocket-config-proof"
 CONTROL_MODE = "outbound_https_poll"
 CLAIM_TTL_SECONDS = 15 * 60
@@ -297,10 +297,13 @@ def probe_dns_tls(url: str) -> None:
     record("dns_resolution_succeeded", details={"hostname": host, "port": port})
     record("tls_connect_started", details={"hostname": host, "port": port})
     context = ssl.create_default_context()
-    with socket.create_connection((host, port), timeout=10) as sock:
-        with context.wrap_socket(sock, server_hostname=host):
-            pass
-    record("tls_connect_succeeded", details={"hostname": host, "port": port})
+    try:
+        with socket.create_connection((host, port), timeout=20) as sock:
+            with context.wrap_socket(sock, server_hostname=host):
+                pass
+        record("tls_connect_succeeded", details={"hostname": host, "port": port})
+    except Exception as exc:
+        record("tls_connect_failed", status="failed", details={"hostname": host, "port": port}, exc=exc)
 
 
 def main() -> None:
